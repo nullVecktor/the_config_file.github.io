@@ -1,0 +1,13 @@
+---
+layout: default
+---
+<article class="article-page">
+  <a class="back-link" href="{{ '/' | relative_url }}">← VOLVER AL DIRECTORIO</a>
+  <header class="article-header">
+    <p class="eyebrow">{{ page.category | default: "ARCHIVO" }} // {{ page.date | date: "%d.%m.%Y" }}</p>
+    <h1>{{ page.title }}</h1>
+    {% if page.description %}<p class="article-description">{{ page.description }}</p>{% endif %}
+  </header>
+  <div class="article-content">{{ content }}</div>
+  <div class="article-end">— END OF FILE —</div>
+</article>

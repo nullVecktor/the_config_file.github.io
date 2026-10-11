@@ -1,0 +1,31 @@
+---
+layout: default
+title: Inicio
+---
+<section class="archive-section" aria-labelledby="latest-title">
+  <div class="section-heading">
+    <p class="eyebrow">CUADERNO TÉCNICO</p>
+    <h1 id="latest-title">THE_CONFIG_FILE</h1>
+    <p class="intro">Infraestructura, código y seguridad. Aprender, documentar y compartir.</p>
+  </div>
+
+  {% assign visible_posts = site.posts %}
+  {% if visible_posts.size > 0 %}
+    <div class="post-list">
+      {% for post in visible_posts %}
+        <article class="post-card">
+          {% if post.image %}<a class="post-image-link" href="{{ post.url | relative_url }}" tabindex="-1" aria-hidden="true"><img class="post-image" src="{{ post.image | relative_url }}" alt=""></a>{% endif %}
+          <div class="post-content">
+            <p class="post-category">{{ post.categories | join: " / " | default: "APUNTES" | upcase }}</p>
+            <h2><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h2>
+            <p class="post-excerpt">{{ post.excerpt | strip_html | normalize_whitespace | truncate: 220 }}</p>
+            <div class="post-meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d/%m/%Y" }}</time><a class="read-more" href="{{ post.url | relative_url }}">LEER MÁS <span aria-hidden="true">→</span></a></div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="empty-state"><span class="empty-mark">{ }</span><h2>El siguiente artículo empieza aquí.</h2><p>Añade un archivo Markdown a <code>_posts/</code> y aparecerá automáticamente en esta página.</p></div>
+  {% endif %}
+  <div class="page-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+</section>
