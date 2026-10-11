@@ -1,18 +1,25 @@
+```yaml
 title: "THE_CONFIG_FILE"
 description: "Notas, guías y experimentos desde el lado oscuro de la tecnología."
+
 url: "https://nullvecktor.github.io"
 baseurl: "/the_config_file.github.io"
+
 markdown: kramdown
 permalink: /blog/:categories/:year/:month/:day/:title/
+
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+
 collections:
   posts:
     output: true
+
 defaults:
   - scope:
       path: ""
       type: posts
     values:
       layout: post
+```
