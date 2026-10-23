@@ -1,5 +1,4 @@
-
-from app import create_app
+from cms.app import create_app
 
 
 def test_dashboard_returns_success():
