@@ -1,0 +1,13 @@
+@'
+title: "THE_CONFIG_FILE"
+description: "Notas, guías y experimentos desde el lado oscuro de la tecnología."
+url: "https://nullvecktor.github.io"
+baseurl: "/the_config_file.github.io"
+
+markdown: kramdown
+permalink: /blog/:categories/:year/:month/:day/:title/
+
+collections:
+  posts:
+    output: true
+'@ | Set-Content -Path .\_config.yml -Encoding utf8
