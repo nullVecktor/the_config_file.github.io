@@ -63,3 +63,22 @@ def test_dashboard_shows_empty_state():
 
     assert response.status_code == 200
     assert "Todavía no hay artículos Markdown.".encode("utf-8") in response.data
+
+
+def test_list_posts_returns_files_in_alphabetical_order(tmp_path):
+    (tmp_path / "2026-10-23-zeta.md").write_text(
+        "# Zeta",
+        encoding="utf-8",
+    )
+    (tmp_path / "2026-10-23-alpha.md").write_text(
+        "# Alpha",
+        encoding="utf-8",
+    )
+
+    posts = list_posts(tmp_path)
+
+    assert [post.name for post in posts] == [
+        "2026-10-23-alpha.md",
+        "2026-10-23-zeta.md",
+    ]
+
