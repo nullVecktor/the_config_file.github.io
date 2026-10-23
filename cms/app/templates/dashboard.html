@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,7 +9,24 @@
 <body>
     <main>
         <h1>THE_CONFIG_FILE</h1>
-        <p>CMS local iniciado correctamente.</p>
+        <p>Panel de administración de publicaciones.</p>
+
+        <section>
+            <h2>Artículos</h2>
+
+            {% if posts %}
+                <ul>
+                    {% for post in posts %}
+                        <li>
+                            <strong>{{ post.stem }}</strong>
+                            <small>{{ post.name }}</small>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>Todavía no hay artículos Markdown.</p>
+            {% endif %}
+        </section>
     </main>
 </body>
 </html>
