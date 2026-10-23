@@ -53,3 +53,14 @@ def test_list_posts_returns_empty_list_for_missing_directory(tmp_path):
     posts = list_posts(missing_dir)
 
     assert posts == []
+
+
+def test_dashboard_shows_empty_state():
+    app = create_app(TestingConfig)
+    client = app.test_client()
+
+    response = client.get("/")
+
+    assert response.status_code == 200
+    assert b"Todav" in response.data
+    assert b"no hay articulos" in response.data
