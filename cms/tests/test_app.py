@@ -62,5 +62,4 @@ def test_dashboard_shows_empty_state():
     response = client.get("/")
 
     assert response.status_code == 200
-    assert b"Todav" in response.data
-    assert b"no hay articulos" in response.data
+    assert "Todavía no hay artículos Markdown.".encode("utf-8") in response.data
