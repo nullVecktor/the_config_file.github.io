@@ -18,3 +18,13 @@ def test_app_uses_testing_config():
 
     assert app.config["TESTING"] is True
     assert app.config["SECRET_KEY"] == "Test-SK"
+
+
+def test_posts_directory_is_configured():
+    app = create_app(TestingConfig)
+
+    posts_dir = app.config["POSTS_DIR"]
+
+    assert posts_dir.name == "_posts"
+    assert posts_dir.is_absolute()
+
