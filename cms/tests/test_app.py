@@ -1,0 +1,12 @@
+
+from app import create_app
+
+
+def test_dashboard_returns_success():
+    app = create_app()
+    client = app.test_client()
+
+    response = client.get("/")
+
+    assert response.status_code == 200
+    assert b"THE_CONFIG_FILE" in response.data
