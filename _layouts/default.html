@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>
+    {% if page.title %}
+      {{ page.title }} | {{ site.title }}
+    {% else %}
+      {{ site.title }}
+    {% endif %}
+  </title>
+
+  <meta name="description" content="{{ site.description | escape }}">
+
+  <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="site-logo" href="{{ '/' | relative_url }}">
+      THE_CONFIG_FILE<span>.</span>
+    </a>
+
+    <nav class="site-nav">
+      <a href="{{ '/' | relative_url }}">Inicio</a>
+    </nav>
+  </header>
+
+  <main class="site-main">
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <p>THE_CONFIG_FILE — Explora. Aprende. Construye.</p>
+  </footer>
+
+</body>
+</html>
