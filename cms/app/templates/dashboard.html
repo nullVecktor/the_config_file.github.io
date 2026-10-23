@@ -5,28 +5,184 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>THE_CONFIG_FILE | Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/dashboard.css') }}">
 </head>
+
 <body>
-    <main>
-        <h1>THE_CONFIG_FILE</h1>
-        <p>Panel de administración de publicaciones.</p>
+    <div class="app-shell">
 
-        <section>
-            <h2>Artículos</h2>
+        <header class="topbar glass">
+            <a class="brand" href="#" aria-label="THE_CONFIG_FILE">
+                <span class="brand-mark">T<span>.</span></span>
+                <span>THE_CONFIG_FILE</span>
+            </a>
 
-            {% if posts %}
-                <ul>
-                    {% for post in posts %}
-                        <li>
-                            <strong>{{ post.stem }}</strong>
-                            <small>{{ post.name }}</small>
-                        </li>
-                    {% endfor %}
-                </ul>
-            {% else %}
-                <p>Todavía no hay artículos Markdown.</p>
-            {% endif %}
-        </section>
-    </main>
+            <div class="topbar-label">
+                <span class="status-dot"></span>
+                SYSTEM OVERVIEW
+            </div>
+
+            <div class="profile">
+                <span class="profile-avatar">V</span>
+                <span>Local workspace</span>
+            </div>
+        </header>
+
+        <div class="workspace">
+
+            <aside class="sidebar glass" aria-label="Navegación visual">
+                <div class="side-icon active"><span>⌂</span></div>
+                <div class="side-icon"><span>▤</span></div>
+                <div class="side-icon"><span>⌘</span></div>
+                <div class="side-icon"><span>◈</span></div>
+                <div class="side-icon"><span>⚙</span></div>
+
+                <div class="sidebar-bottom">
+                    <span class="status-dot"></span>
+                    <small>LOCAL</small>
+                </div>
+            </aside>
+
+            <main class="dashboard">
+
+                <section class="welcome">
+                    <div>
+                        <p class="eyebrow">CONTROL CENTER / 01</p>
+                        <h1>Tu espacio<span class="accent">.</span><br>
+                            Tu tecnología.</h1>
+                        <p class="welcome-copy">
+                            Un lugar para documentar, explorar y construir.
+                        </p>
+                    </div>
+
+                    <div class="welcome-orb" aria-hidden="true">
+                        <span>T<span>.</span></span>
+                    </div>
+                </section>
+
+                <section class="overview-grid">
+
+                    <article class="panel panel-featured glass">
+                        <div class="panel-heading">
+                            <div>
+                                <p class="eyebrow">WORKSPACE</p>
+                                <h2>THE_CONFIG_FILE</h2>
+                            </div>
+                            <span class="panel-symbol">◈</span>
+                        </div>
+
+                        <p class="panel-description">
+                            Notas, guías y experimentos desde el lado oscuro
+                            de la tecnología.
+                        </p>
+
+                        <div class="feature-footer">
+                            <span><i class="status-dot"></i> Entorno local</span>
+                            <span class="tag">FLASK / JEKYLL</span>
+                        </div>
+                    </article>
+
+                    <article class="panel glass">
+                        <div class="panel-heading">
+                            <div>
+                                <p class="eyebrow">INTERFACE</p>
+                                <h2>Visual system</h2>
+                            </div>
+                            <span class="panel-symbol cyan">✳</span>
+                        </div>
+
+                        <div class="visual-bars" aria-hidden="true">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <div class="panel-footnote">
+                            <span>DESIGN LANGUAGE</span>
+                            <strong>GLASS / 01</strong>
+                        </div>
+                    </article>
+
+                    <article class="panel panel-accent glass">
+                        <p class="eyebrow">CURRENT MODE</p>
+                        <div class="mode-icon">⌘</div>
+                        <h2>Build mode</h2>
+                        <p>Pequeños pasos.<br>Grandes sistemas.</p>
+                        <span class="corner-mark">↗</span>
+                    </article>
+
+                    <article class="panel panel-posts glass">
+                        <div class="panel-heading">
+                            <div>
+                                <p class="eyebrow">CONTENT / 02</p>
+                                <h2>Artículos</h2>
+                            </div>
+                            <span class="count-badge">{{ posts|length }}</span>
+                        </div>
+
+                        {% if posts %}
+                            <ul class="post-list">
+                                {% for post in posts %}
+                                    <li class="post-item">
+                                        <span class="post-icon">↳</span>
+                                        <span class="post-info">
+                                            <strong>{{ post.stem }}</strong>
+                                            <small>{{ post.name }}</small>
+                                        </span>
+                                        <span class="post-arrow">↗</span>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <div class="empty-state">
+                                <span class="empty-icon">⌁</span>
+                                <p>Todavía no hay artículos Markdown.</p>
+                                <small>Tu próxima idea puede empezar aquí.</small>
+                            </div>
+                        {% endif %}
+
+                        <div class="panel-footnote">
+                            <span>MARKDOWN FILES</span>
+                            <span class="tag">Jekyll</span>
+                        </div>
+                    </article>
+
+                    <article class="panel panel-note glass">
+                        <p class="eyebrow">FIELD NOTES / 03</p>
+                        <div class="note-graphic" aria-hidden="true">
+                            <span>01</span>
+                            <span>10</span>
+                            <span>11</span>
+                            <span>00</span>
+                            <span>01</span>
+                            <span>11</span>
+                            <span>10</span>
+                            <span>01</span>
+                        </div>
+                        <h2>Think. Build. Document.</h2>
+                        <p>El conocimiento también se construye proyecto a proyecto.</p>
+                    </article>
+
+                </section>
+
+                <footer class="dashboard-footer">
+                    <span>THE_CONFIG_FILE <span class="accent">/</span> PERSONAL LAB</span>
+                    <span>DESIGNED FOR CURIOSITY <span class="footer-dot">●</span></span>
+                </footer>
+
+            </main>
+        </div>
+    </div>
 </body>
 </html>
